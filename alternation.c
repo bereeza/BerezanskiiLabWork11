@@ -20,3 +20,13 @@ void *f1() {
                 printf("f1: noncritical_region Berezanskii\n");
         }
 }
+void *f2() {
+        while(1) {
+                sleep(1);
+                while (turn==0) ;
+                printf("f2: critical_region Berezanskii!\n");
+                sleep(3);
+                turn=0;
+                printf("f2: noncritical_region Berezanskii\n");
+        }
+}
